@@ -36,6 +36,8 @@ import android.widget.Button;
 import org.sufficientlysecure.keychain.R;
 import org.sufficientlysecure.keychain.service.KeychainService;
 
+import snippet.CheatSheet;
+
 /**
  * meant to be used
  */
@@ -156,6 +158,7 @@ public class ProgressDialogFragment extends DialogFragment {
         }
 
         final Button negative = dialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+            CheatSheet.setup(negative,getContentDescription(negative));
         negative.setEnabled(mIsCancelled && !preventCancel);
     }
 

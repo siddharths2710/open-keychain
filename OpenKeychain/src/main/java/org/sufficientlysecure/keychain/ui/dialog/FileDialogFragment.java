@@ -42,7 +42,7 @@ import org.sufficientlysecure.keychain.util.FileHelper;
 import org.sufficientlysecure.keychain.util.Log;
 
 import java.io.File;
-
+import snippet.CheatSheet;
 /**
  * This is a file chooser dialog no longer used with KitKat
  */
@@ -119,6 +119,7 @@ public class FileDialogFragment extends DialogFragment {
         mFilename = (EditText) view.findViewById(R.id.input);
         mFilename.setText(mFile.getName());
         mBrowse = (ImageButton) view.findViewById(R.id.btn_browse);
+            CheatSheet.setup(mBrowse,getContentDescription(mBrowse));
         mBrowse.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // only .asc or .gpg files

@@ -38,6 +38,8 @@ import org.sufficientlysecure.keychain.service.SaveKeyringParcel;
 import org.sufficientlysecure.keychain.ui.util.KeyFormattingUtils;
 import org.sufficientlysecure.keychain.ui.util.KeyFormattingUtils.State;
 
+import snippet.CheatSheet;
+
 public class UserIdsAdapter extends UserAttributesAdapter {
     protected LayoutInflater mInflater;
     private SaveKeyringParcel mSaveKeyringParcel;
@@ -65,6 +67,9 @@ public class UserIdsAdapter extends UserAttributesAdapter {
         TextView vName = (TextView) view.findViewById(R.id.user_id_item_name);
         TextView vAddress = (TextView) view.findViewById(R.id.user_id_item_address);
         TextView vComment = (TextView) view.findViewById(R.id.user_id_item_comment);
+            CheatSheet.setup(vName,getContentDescription(vName));
+            CheatSheet.setup(vAddress,getContentDescription(vAddress));
+            CheatSheet.setup(vComment,getContentDescription(vComment));
         ImageView vVerified = (ImageView) view.findViewById(R.id.user_id_item_certified);
         View vVerifiedLayout = view.findViewById(R.id.user_id_item_certified_layout);
         ImageView vEditImage = (ImageView) view.findViewById(R.id.user_id_item_edit_image);

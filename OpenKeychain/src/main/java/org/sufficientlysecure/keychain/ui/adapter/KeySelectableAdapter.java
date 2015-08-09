@@ -18,6 +18,8 @@ import org.sufficientlysecure.keychain.Constants;
 import org.sufficientlysecure.keychain.R;
 import org.sufficientlysecure.keychain.util.Log;
 
+import snippet.CheatSheet;
+
 
 public class KeySelectableAdapter extends KeyAdapter implements OnItemClickListener {
 
@@ -37,6 +39,7 @@ public class KeySelectableAdapter extends KeyAdapter implements OnItemClickListe
         public KeySelectableItemViewHolder(View view) {
             super(view);
             mCheckbox = (CheckBox) view.findViewById(R.id.selected);
+            CheatSheet.setup(mCheckBox,getContentDescription(mCheckBox));
         }
 
         public void setCheckedState(boolean checked) {

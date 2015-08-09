@@ -45,6 +45,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
+import snippet.CheatSheet;
+
 public class SubkeysAdapter extends CursorAdapter {
     private LayoutInflater mInflater;
     private SaveKeyringParcel mSaveKeyringParcel;
@@ -158,7 +160,10 @@ public class SubkeysAdapter extends CursorAdapter {
         ImageView vAuthenticateIcon = (ImageView) view.findViewById(R.id.subkey_item_ic_authenticate);
         ImageView vEditImage = (ImageView) view.findViewById(R.id.subkey_item_edit_image);
         ImageView vStatus = (ImageView) view.findViewById(R.id.subkey_item_status);
-
+        
+        CheatSheet.setup(vKeyId,getContentDescription(vKeyId));
+        CheatSheet.setup(vKeyDetails,getContentDescription(vKeyDetails));
+        CheatSheet.setup(vKeyExpiry,getContentDescription(vKeyExpiry));
         // not used:
         ImageView deleteImage = (ImageView) view.findViewById(R.id.subkey_item_delete_button);
         deleteImage.setVisibility(View.GONE);

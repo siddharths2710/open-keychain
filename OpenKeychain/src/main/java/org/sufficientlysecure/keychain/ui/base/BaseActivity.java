@@ -30,6 +30,8 @@ import android.widget.TextView;
 
 import org.sufficientlysecure.keychain.R;
 
+import snippet.CheatSheet;
+
 /**
  * Setups Toolbar
  */
@@ -75,6 +77,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         final View customActionBarView = inflater.inflate(R.layout.full_screen_dialog, null);
 
         TextView firstTextView = ((TextView) customActionBarView.findViewById(R.id.full_screen_dialog_done_text));
+            CheatSheet.setup(firstTextView,getContentDescription(firstTextView));
         firstTextView.setText(doneText);
         customActionBarView.findViewById(R.id.full_screen_dialog_done).setOnClickListener(
                 doneOnClickListener);

@@ -39,6 +39,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
+import snippet.CheatSheet;
+
 public class SubkeysAddedAdapter extends ArrayAdapter<SaveKeyringParcel.SubkeyAdd> {
     private LayoutInflater mInflater;
     private Activity mActivity;
@@ -80,7 +82,12 @@ public class SubkeysAddedAdapter extends ArrayAdapter<SaveKeyringParcel.SubkeyAd
 
             holder.vDelete = (ImageButton) convertView.findViewById(R.id.subkey_item_delete_button);
             holder.vDelete.setVisibility(View.VISIBLE); // always visible
-
+            CheatSheet.setup(vKeyId,getContentDescription(vKeyId));
+            
+            //mouse-over hints
+            CheatSheet.setup(vKeyDetails,getContentDescription(vKeyDetails));
+            CheatSheet.setup(vKeyExpiry,getContentDescription(vKeyExpiry));
+            CheatSheet.setup(vDelete,getContentDescription(vDelete));
             // not used:
             ImageView vEdit = (ImageView) convertView.findViewById(R.id.subkey_item_edit_image);
             vEdit.setVisibility(View.GONE);

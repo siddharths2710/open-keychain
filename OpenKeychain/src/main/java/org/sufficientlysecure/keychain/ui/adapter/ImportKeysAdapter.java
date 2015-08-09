@@ -45,6 +45,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import snippet.CheatSheet;
 
 public class ImportKeysAdapter extends ArrayAdapter<ImportKeysListEntry> {
     protected LayoutInflater mInflater;
@@ -133,11 +134,19 @@ public class ImportKeysAdapter extends ArrayAdapter<ImportKeysListEntry> {
             holder.status = (ImageView) convertView.findViewById(R.id.import_item_status);
             holder.userIdsDivider = convertView.findViewById(R.id.import_item_status_divider);
             holder.userIdsList = (LinearLayout) convertView.findViewById(R.id.import_item_user_ids_list);
-            holder.checkBox = (CheckBox) convertView.findViewById(R.id.import_item_selected);
+            holder.checkBox = (CheckBox) convertView.findViewById(R.id.import_item_selected);	        
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
+            
+            // MouseOver hints
+            CheatSheet.setup(holder.mainUserId,getContentDescription(holder.mainUserId));
+            CheatSheet.setup(holder.mainUserIdRest,getContentDescription(holder.mainUserIdRest));
+            CheatSheet.setup(holder.keyId,getContentDescription(holder.keyId));
+            CheatSheet.setup(holder.fingerprint,getContentDescription(holder.fingerprint));
+            CheatSheet.setup(holder.algorithm,getContentDescription(holder.algorithm));
+            CheatSheet.setup(holder.checkBox,getContentDescription(holder.checkBox));
 
         // main user id
         String userId = entry.getUserIds().get(0);

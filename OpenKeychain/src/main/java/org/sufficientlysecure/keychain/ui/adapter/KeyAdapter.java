@@ -45,6 +45,8 @@ import org.sufficientlysecure.keychain.ui.util.Highlighter;
 import org.sufficientlysecure.keychain.ui.util.KeyFormattingUtils;
 import org.sufficientlysecure.keychain.ui.util.KeyFormattingUtils.State;
 
+import snippet.CheatSheet;
+
 public class KeyAdapter extends CursorAdapter {
 
     protected String mQuery;
@@ -104,6 +106,11 @@ public class KeyAdapter extends CursorAdapter {
             mSlinger = view.findViewById(R.id.key_list_item_slinger_view);
             mSlingerButton = (ImageButton) view.findViewById(R.id.key_list_item_slinger_button);
             mCreationDate = (TextView) view.findViewById(R.id.key_list_item_creation);
+            CheatSheet.setup(mMainUserId,getContentDescription(mMainUserId));
+            CheatSheet.setup(mMainUserIdRest,getContentDescription(mMainUserIdRest));
+            CheatSheet.setup(mStatus,getContentDescription(mStatus));
+            CheatSheet.setup(mSlingerButton,getContentDescription(mSlingerButton));
+            CheatSheet.setup(mCreationDate,getContentDescription(mCreationDate));
         }
 
         public void setData(Context context, KeyItem item, Highlighter highlighter, boolean enabled) {

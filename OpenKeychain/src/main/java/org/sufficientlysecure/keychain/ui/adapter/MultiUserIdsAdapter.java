@@ -36,6 +36,8 @@ import org.sufficientlysecure.keychain.service.CertifyActionsParcel.CertifyActio
 
 import java.util.ArrayList;
 
+import snippet.CheatSheet;
+
 public class MultiUserIdsAdapter extends CursorAdapter {
     private LayoutInflater mInflater;
     private final ArrayList<Boolean> mCheckStates;
@@ -128,6 +130,7 @@ public class MultiUserIdsAdapter extends CursorAdapter {
         }
 
         final CheckBox vCheckBox = (CheckBox) view.findViewById(R.id.user_id_item_check_box);
+        CheatSheet.setup(vCheckBox,getContentDescription(vCheckBox));
         final int position = cursor.getPosition();
         vCheckBox.setOnCheckedChangeListener(null);
         vCheckBox.setChecked(mCheckStates.get(position));
@@ -140,6 +143,7 @@ public class MultiUserIdsAdapter extends CursorAdapter {
         vCheckBox.setClickable(false);
 
         View vUidBody = view.findViewById(R.id.user_id_body);
+        
         vUidBody.setClickable(true);
         vUidBody.setOnClickListener(new OnClickListener() {
             @Override
